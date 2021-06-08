@@ -45,12 +45,13 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						  
 						  <ul class="nav navbar-nav navbar-right">
-							<li class="active"><a style="color: black;" href="#home">Home</a></li>
-							<li><a style="color: black;" href="#features">FEATURES</a></li>
-							<li><a style="color: black;" href="#special">PRICINGS</a></li>
-							<li><a style="color: black;" href="#abouts">CLIENTS</a></li>
-							<li><a style="color: black;" href="{% url 'reservation:reserve_table' %}">RESERVATIONS</a></li>
-							<li><a style="color: black;" href="#footer">FAQ</a></li>
+							<li class="active"><a style="color: black;" href="/">Home</a></li>
+							<li><a style="color: black;" href="{% url 'blog:post_list' %}">Blog</a></li>
+							<li><a style="color: black;" href="#special">Specials</a></li>
+							<li><a style="color: black;" href="#abouts">About Us</a></li>
+							<li><a style="color: black;" href="{% url 'aboutus:aboutus_list' %}">More About Us</a></li>
+							<li><a style="color: black;" href="{% url 'reservation:reserve_table' %}">Reservations</a></li>
+							<li><a style="color: black;" href="{% url 'contact:send_email' %}">Contact</a></li>
 							
 						  </ul>
 						</div><!-- /.navbar-collapse -->
@@ -107,39 +108,6 @@
 										<span>+48 202-555-0114</span>
 									</div>
 								</div>
-							</div>
-							
-							<div class="contact_form_area">
-								<h3>Contact form</h3>
-								<form action="#" id="formid">
-									<div class="row">
-										<div class="col-sm-6 col-xs-6">
-											<div class="form-group">
-												<input type="text" class="form-control" name="name" placeholder="first name">
-											</div>
-										</div>
-
-										<div class="col-sm-6 col-xs-6">
-											<div class="form-group">
-												<input type="email" class="form-control" name="email" placeholder="Email">
-											</div>
-										</div>
-									</div>
-									
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
-											</div>
-											
-											
-										</div>
-
-										<div class="form_btn_area text-center">
-											<a href="" class="btn">Send</a>
-										</div>
-									</div>
-								</form>	
 							</div>
 							
 						</div>

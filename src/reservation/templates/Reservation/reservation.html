@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load bootstrap4 %}
+
 {% block body %}
 
 <section id="banner" class="banner">
@@ -102,10 +105,13 @@
                                 <form action="" method="POST">
 
                                     {% csrf_token %}
-                                    {{form}}
+
+                                    {% bootstrap_form form %}
+									{% buttons %}
 
                                     <button type="submit" class = "form_btn_area text-center">Submit</button>
-
+									{% endbuttons %}
+ 
 
                                 </form>
 									</div>

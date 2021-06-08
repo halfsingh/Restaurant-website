@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+	<section id="banner" class="banner">
+		<div class="container">
+			<div class="row">
+				<div class="main_banner_area text-center">
+					<div class="col-md-5 col-sm-5 col-md-offset-7 col-sm-offset-7">
+						<div class="single_banner_text wow zoomIn" data-wow-duration="1s">
+							<p>About the restaurant.</p>
+							
+							<div class="separetor"></div>
+						</div>
+					</div>
+					
+					
+					<div class="scrolldown">
+						<a href="#special" class="scroll_btn"></a>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</section><!-- End of Banner Section -->
+
+
+
+	<section id="abouts" class="abouts sections">
+		<div class="container">
+			<div class="row">
+				<div class="main_abouts">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInLeft" data-wow-duration="2s">
+							<div class="head_title text-center">
+								<h2>{{about.title}}</h2>
+								<div class="separetor"></div>
+							</div>
+							
+							<p>{{about.content}}</p>
+							<div class="signature_img text-right">
+								<img src="{% static 'site_static/images/signature.png' %}" alt="" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInRight" data-wow-duration="2s">
+							<img src="{% static 'site_static/images/abimg.png' %}" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End of Abouts Section -->
+
+    <section id="abouts" class="abouts sections">
+		<div class="container">
+			<div class="row">
+				<div class="main_abouts">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInRight" data-wow-duration="2s">
+							<div class="head_title text-center">
+								<h2>Why Choose Us</h2>
+								<div class="separetor"></div>
+							</div>
+
+                            {% for info in why_choose_us %}
+                            <div class="menus_top_menu text-center wow slideInDown" data-wow-duration="1.5s">
+                                <h3>{{info.title}}</h3>
+                            
+                            </div>
+							
+							<p>{{info.content}}</p>
+							
+                            {% endfor %}
+
+                            <div class="signature_img text-right">
+								<img src="{% static 'site_static/images/signature.png' %}" alt="" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInLeft" data-wow-duration="2s">
+							<img src="{% static 'site_static/images/abimg.png' %}" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End of Abouts Section -->
+
+    <div class="container-fluid">
+        <main class="tm-main">
+            <div class="row tm-row">
+    
+                {% for chef in chef %}        
+                    <article class="col-12 col-md-6 tm-post">
+                        <hr class="tm-hr-primary">
+                            <img src="{{chef.image.url}}" alt="Image" class="img-fluid">
+
+                            <h2 style= " color: red;" class="tm-pt-30 tm-color-primary tm-post-title">{{chef.name}}</h2>
+                            <h2 style= " color: black;" class="tm-pt-30 tm-color-primary tm-post-title">{{chef.title}}</h2>                 
+                        <p style= " color: black;" class="tm-pt-30">
+                            {{chef.bio|truncatewords:50}}
+                        </p>
+
+                    </article>
+    
+                {% endfor %}
+    
+
+
+
+
+
+
+
+    
+
+
+
+    {% endblock body %}

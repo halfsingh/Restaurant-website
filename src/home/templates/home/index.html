@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+	
+{% load static %}
+
+{% block body %}
+
+
+	<section id="banner" class="banner">
+		<div class="container">
+			<div class="row">
+				<div class="main_banner_area text-center">
+					<div class="col-md-5 col-sm-5 col-md-offset-7 col-sm-offset-7">
+						<div class="single_banner_text wow zoomIn" data-wow-duration="1s">
+							<p>Veggies es bonus vobis, proinde vos postulo essum.</p>
+							
+							<div class="separetor"></div>
+						</div>
+					</div>
+					
+					
+					<div class="scrolldown">
+						<a href="#special" class="scroll_btn"></a>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</section><!-- End of Banner Section -->
+	
+	<section id="special" class="special sections">
+		<div class="container">
+			<div class="row">
+				<div class="head_title text-center wow slideInLeft" data-wow-duration="1.5s">
+					<h2>This month specials</h2>
+					<div class="separetor"></div>
+				</div>
+				<div class="main_special text-center wow slideInUp" data-wow-duration="3s">
+					
+					{% for meal in meals %}
+
+
+						<div class="col-md-2 col-sm-3 col-xs-6 single_special">
+							<div class="single_special_img">
+								<img src="{{meal.image.url}}" alt="" />
+								<div class="single_special_overlay text-center">
+									<h3>{{meal.name}}</h3>
+									<div class="overlay_separetor"></div>
+									<p>{{meal.description | truncatewords:7}}</p>
+									<p>{{meal.price}}</p>
+								</div>
+							</div>
+						</div>
+						
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	
+	<section id="abouts" class="abouts sections">
+		<div class="container">
+			<div class="row">
+				<div class="main_abouts">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInLeft" data-wow-duration="2s">
+							<div class="head_title text-center">
+								<h2>{{about.title}}</h2>
+								<div class="separetor"></div>
+							</div>
+							
+							<p>{{about.content}}</p>
+							<div class="signature_img text-right">
+								<img src="{% static 'site_static/images/signature.png' %}" alt="" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInRight" data-wow-duration="2s">
+							<img src="{% static 'site_static/images/abimg.png' %}" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End of Abouts Section -->
+
+    <section id="abouts" class="abouts sections">
+		<div class="container">
+			<div class="row">
+				<div class="main_abouts">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInRight" data-wow-duration="2s">
+							<div class="head_title text-center">
+								<h2>Why Choose Us</h2>
+								<div class="separetor"></div>
+							</div>
+
+                            {% for info in why_choose_us %}
+                            <div class="menus_top_menu text-center wow slideInDown" data-wow-duration="1.5s">
+                                <h3>{{info.title}}</h3>
+                            
+                            </div>
+							
+							<p>{{info.content}}</p>
+							
+                            {% endfor %}
+
+                            <div class="signature_img text-right">
+								<img src="{% static 'site_static/images/signature.png' %}" alt="" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single_abouts wow slideInLeft" data-wow-duration="2s">
+							<img src="{% static 'site_static/images/abimg.png' %}" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End of Abouts Section -->
+
+	
+	<section id="menus" class="menus sections">
+		<div class="container">
+			<div class="row">
+				<div class="main_menus">
+					<div class="head_title text-center wow slideInDown" data-wow-duration="2s">
+						<h2>Menu</h2>
+						<div class="separetor"></div>
+					</div>
+					
+					<div class="menus_top_menu text-center wow slideInDown" data-wow-duration="1.5s">
+						<ul>
+							{% for category in categories %}
+								<li class="active"><a href="">{{category}}</a></li>
+							{% endfor %}
+
+						</ul>
+					</div>
+
+					{% for category in categories %}
+						{% for meal in meal_list %}
+							{% if meal.category == category%}
+
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<div class="single_menus wow slideInLeft" data-wow-duration="1.5s">
+										<ul>
+											<li><a href="{% url 'meals:meal_detail' meal.slug %}"> {{meal.name}} </a>........................................................... {{meal.price}}</li>
+											
+										</ul>
+									</div>
+								</div>
+								
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<div class="single_menus wow slideInRight" data-wow-duration="1.5s">
+										<ul>
+											<li><a href="{% url 'meals:meal_detail' meal.slug %}"> {{meal.name}} </a>........................................................... {{meal.price}}</li>
+											
+										</ul>
+									</div>
+								</div>
+							{% endif %}
+
+						{% endfor %}
+					
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="features" class="features sections">
+		<div class="container">
+			<div class="row">
+				<div class="features_content text-center">
+					{% for post in posts %}
+					<a href="{% url 'blog:post_detail' post.id %}" >
+							<div class="col-md-4">
+								<div class="sinle_features wow slideInUp" data-wow-duration="1s">
+									<img src="{{post.image.url}}" alt="" />
+									<h5>{{post.title}}</h5>
+								</a>
+									<p>{{post.content|truncatewords:20}}</p>
+								</div>
+							</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section><!-- End of Abouts Section -->	
+
+
+
+{% endblock body %}

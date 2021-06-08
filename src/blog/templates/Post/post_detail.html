@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
-
+{% load bootstrap4 %}
 {% block body %}
 
 <section id="banner" class="banner">
@@ -63,8 +63,10 @@
 
                             <form method="POST" class="mb-5 tm-comment-form">
                                 {% csrf_token %}
-                                {{comment_form}}
-                                <button type="submit" class="btn btn-primary">Leave a comment</button>
+                                {% bootstrap_form comment_form %}
+                                {% buttons %}
+                                    <button type="submit" class="btn btn-primary">Leave a comment</button>
+                                {% endbuttons %}
                             </form>                          
                         </div>
                     </div>
